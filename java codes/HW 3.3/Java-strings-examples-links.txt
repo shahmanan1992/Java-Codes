@@ -1,0 +1,600 @@
+//1- JAVA STRING SITE: http://theopentutorials.com/tutorials/java/strings/direct-method/
+//2//Link to Java String site:
+//http://www.java-examples.com/java-string-byte-array-example
+//Programming via Java :http://www.toves.org/books/java/ch17-recur/
+//Recursion and Backtracking link http://www.fas.harvard.edu/~cscie119/lectures/recursion.pdf
+//Java Revisited.blog :http://javarevisited.blogspot.com
+//Backtracking N Queen puzzel: http://sadakurapati.wordpress.com/2013/12/10/n-queens-backtracking-algorithm/
+
+//Tutorialspoint for JAVA:http://www.tutorialspoint.com/java/java_bitwise_operators_examples.htm
+
+//Program 1:
+public class S1 {
+
+  public static void method(String id, String literal, String aNewString)    {
+	System.out.println(id + " in method");
+	System.out.println("\tliteral= aNewString\n	" + ( literal == aNewString ));
+  }
+  public static void main( String args[] ) {
+	String aString = "xyz";
+	System.out.println("1.	xyz == aString:	" +     "xyz" == aString   );
+	System.out.println("2.	xyz == aString:	" +   ( "xyz" == aString ) );
+
+	String newString = new String("xyz");
+	System.out.println("xyz == new String(xyz)\n	" + ("xyz" == newString) );
+
+	method("1", "xyz", "xyz");
+	method("2", "xyz", new String("xyz") );
+	method("3", "xyz", "xy" + "z");
+	method("4", "x" + "y" + "z", "xyz");
+	method("5", "x" + "y" + new String("z"), "xyz");
+	method("6", "x" + ( "y" + "z"), "xyz");
+	method("7", 'x' + ( "y" + "z"), "xyz");
+  }
+}
+
+
+//Progarm 2
+
+
+public class PrimitiveParameters
+{    
+	public static void main(String[] args)
+	{	go();
+	}
+	
+	public static void go()
+	{	int x = 3;
+		int y = 2;
+		System.out.println("In method go. x: " + x + " y: " + y);
+		falseSwap(x,y);
+		System.out.println("in method go. x: " + x + " y: " + y);
+		moreParameters(x,y);
+		System.out.println("in method go. x: " + x + " y: " + y);
+	}
+	
+	public static void falseSwap(int x, int y)
+	{	System.out.println("in method falseSwap. x: " + x + " y: " + y);
+		int temp = x;
+		x = y;
+		y = temp;
+		System.out.println("in method falseSwap. x: " + x + " y: " + y);
+	}
+	
+	public static void moreParameters(int a, int b)
+	{	System.out.println("in method moreParameters. a: " + a + " b: " + b);
+		a = a * b;
+		b = 12;
+		System.out.println("in method moreParameters. a: " + a + " b: " + b);
+		falseSwap(b,a);
+		System.out.println("in method moreParameters. a: " + a + " b: " + b);	
+	}
+}
+//SOlution:
+Executing the program....
+$java -Xmx128M -Xms16M PrimitiveParameters 
+In method go. x: 3 y: 2
+in method falseSwap. x: 3 y: 2
+in method falseSwap. x: 2 y: 3
+in method go. x: 3 y: 2
+in method moreParameters. a: 3 b: 2
+in method moreParameters. a: 6 b: 12
+in method falseSwap. x: 12 y: 6
+in method falseSwap. x: 6 y: 12
+in method moreParameters. a: 6 b: 12
+in method go. x: 3 y: 2
+
+
+//Program #3
+public class Test{
+private static int index = 0;  
+private static int stoppingPoint = 40;  
+
+public static void main (String[] args)  
+{  
+  int n1 = 0;  
+  int n2 = 1;  
+  System.out.println("index: " + index + " -> " +n1);  
+  fibonacciSequence(n1, n2);  
+}  
+  
+public static void fibonacciSequence(int n1, int n2)  
+{  
+  System.out.println("index: " + index + " -> " + n2);  
+    
+  // make sure we have set an ending point so this Java recursion  
+  // doesn't go on forever.  
+  if (index == stoppingPoint)  
+    return;  
+    
+  // make sure we increment our index so we make progress  
+  // toward the end.  
+  index++;  
+    
+  fibonacciSequence(n2, n1+n2);  
+}  
+}
+//Solution for program #3:
+$java -Xmx128M -Xms16M Test 
+index: 0 -> 0
+index: 0 -> 1
+index: 1 -> 1
+index: 2 -> 2
+index: 3 -> 3
+index: 4 -> 5
+index: 5 -> 8
+index: 6 -> 13
+index: 7 -> 21
+index: 8 -> 34
+index: 9 -> 55
+index: 10 -> 89
+index: 11 -> 144
+index: 12 -> 233
+index: 13 -> 377
+index: 14 -> 610
+index: 15 -> 987
+index: 16 -> 1597
+index: 17 -> 2584
+index: 18 -> 4181
+index: 19 -> 6765
+index: 20 -> 10946
+index: 21 -> 17711
+index: 22 -> 28657
+index: 23 -> 46368
+index: 24 -> 75025
+index: 25 -> 121393
+index: 26 -> 196418
+index: 27 -> 317811
+index: 28 -> 514229
+index: 29 -> 832040
+index: 30 -> 1346269
+index: 31 -> 2178309
+index: 32 -> 3524578
+index: 33 -> 5702887
+index: 34 -> 9227465
+index: 35 -> 14930352
+index: 36 -> 24157817
+index: 37 -> 39088169
+index: 38 -> 63245986
+index: 39 -> 102334155
+index: 40 -> 165580141
+//=======================
+//Program #4
+public class Maximum_3 {
+  private double maximum(double _first, double _second ) {
+    return _first > _second ? _first : _second;
+  }
+
+  public static double minimum(double _first, double _second ) {
+	return _first < _second ? _first : _second;
+  }
+
+  public static void main( String args[] ) {
+    Maximum_3 aMax = new Maximum_3();
+    double firstN    = 42.0;
+    double secondN   = 7.0;
+    
+
+    System.out.println("Maximum(" + firstN +
+	", " + secondN + ") =  " +
+	aMax.maximum( firstN, secondN) );
+
+    System.out.println("Minimum(" + firstN +
+	", " + secondN + ") =  "
+	+ aMax.minimum( firstN, secondN) );
+  }
+}
+//Solution for Program #4
+$java -Xmx128M -Xms16M Maximum_3 
+Maximum(42.0, 7.0) =  42.0
+Minimum(42.0, 7.0) =  7.0
+//================================
+//Program #5
+public class OpEx
+{
+   public static void main(String args[])
+   {
+   char aChar     	= 'b';
+   byte aByte		= 2;
+
+   int 	intVar_1	= 1;
+   int 	intVar_2	= 2;
+   int 	intRes		= 3;
+   double	doubleVar_1	= 3.8;
+   double	doubleVar_2	= 4.8;
+   double	doubleRes	= doubleVar_1 - doubleVar_2;
+
+   System.out.println("1. " + aChar);		// man ascii decimal set
+   System.out.println("2. " + aByte);
+   System.out.println("3. " + aByte+aChar);
+   System.out.println("4. " + aByte+0);
+   System.out.println("5. " + aChar+0);
+
+   intRes = 5 / 3;	  System.out.println("6. " + intRes);
+   intRes = 5 % 3;	  System.out.println("7. " + intRes);
+// intRes = 5 / doubleVar_2; 	// Doesn't work, why?
+   intRes = (int)(5 / doubleVar_2); System.out.println("8. " + intRes);
+
+   doubleRes = 5   / doubleVar_2; System.out.println("9. " + doubleRes);
+   doubleRes = 5.0 / doubleVar_2; System.out.println("10. " + doubleRes);
+   }
+}
+//Solution for Program #5
+Executing the program....
+$java -Xmx128M -Xms16M OpEx 
+1. b
+2. 2
+3. 2b
+4. 20
+5. b0
+6. 1
+7. 2
+8. 1
+9. 1.0416666666666667
+10. 1.0416666666666667
+//Program #6
+public class BitShiftTest {
+
+    public static void main(String args[]) {
+       
+     int number = 8; //0000 1000
+     System.out.println("Original number : " + number);
+   
+     //left shifting bytes with 1 position
+     number = number<<1; //should be 16 i.e. 0001 0000
+
+     //equivalent of multiplication of 2
+     System.out.println("value of number after left shift: " + number);
+   
+     number = -8;
+     //right shifting bytes with sign 1 position
+     number = number>>1; //should be 16 i.e. 0001 0000
+
+     //equivalent of division of 2
+     System.out.println("value of number after right shift with sign: " + number);
+   
+     number = -8;
+     //right shifting bytes without sign 1 position
+     number = number>>>1; //should be 16 i.e. 0001 0000
+
+     //equivalent of division of 2
+     System.out.println("value of number after right shift with sign: " + number);
+   
+    }  
+      
+}
+
+//Solution to Program #6
+$java -Xmx128M -Xms16M BitShiftTest 
+Original number : 8
+value of number after left shift: 16
+value of number after right shift with sign: -4
+value of number after right shift with sign: 2147483644
+//=========================================================
+
+//Program #7
+public class Test {
+
+  public static void main(String args[]) {
+     int a = 10;    
+     int b = 20;
+     int c = 0;
+
+     c = a + b;
+     System.out.println("c = a + b = " + c );
+
+     c += a ;
+     System.out.println("c += a  = " + c );
+
+     c -= a ;
+     System.out.println("c -= a = " + c );
+
+     c *= a ;
+     System.out.println("c *= a = " + c );
+
+     a = 10;
+     c = 15;
+     c /= a ;
+     System.out.println("c /= a = " + c );
+
+     a = 10;
+     c = 15;
+     c %= a ;
+     System.out.println("c %= a  = " + c );
+
+     c <<= 2 ;
+     System.out.println("c <<= 2 = " + c );
+
+     c >>= 2 ;
+     System.out.println("c >>= 2 = " + c );
+
+     c >>= 2 ;
+     System.out.println("c >>= a = " + c );
+
+     c &= a ;
+     System.out.println("c &= 2  = " + c );
+  
+     c ^= a ;
+     System.out.println("c ^= a   = " + c );
+
+     c |= a ;
+     System.out.println("c |= a   = " + c );
+  }
+} 
+//Solution for Program #6
+$java -Xmx128M -Xms16M Test 
+c = a + b = 30
+c += a  = 40
+c -= a = 30
+c *= a = 300
+c /= a = 1
+c %= a  = 5
+c <<= 2 = 20
+c >>= 2 = 5
+c >>= a = 1
+c &= 2  = 0
+c ^= a   = 10
+c |= a   = 10
+//===============
+//Program #7
+public class Test {
+
+  public static void main(String args[]) {
+     int a = 60;    /* 60 = 0011 1100 */  
+     int b = 13;	/* 13 = 0000 1101 */
+     int c = 0;
+
+     c = a & b;       /* 12 = 0000 1100 */ 
+     System.out.println("a & b = " + c );
+
+     c = a | b;       /* 61 = 0011 1101 */
+     System.out.println("a | b = " + c );
+
+     c = a ^ b;       /* 49 = 0011 0001 */
+     System.out.println("a ^ b = " + c );
+
+     c = ~a;          /*-61 = 1100 0011 */
+     System.out.println("~a = " + c );
+
+     c = a << 2;     /* 240 = 1111 0000 */
+     System.out.println("a << 2 = " + c );
+
+     c = a >> 2;     /* 215 = 1111 */
+     System.out.println("a >> 2  = " + c );
+
+     c = a >>> 2;     /* 215 = 0000 1111 */
+     System.out.println("a >>> 2 = " + c );
+  }
+} 
+/Solution for Program #7
+$java -Xmx128M -Xms16M Test 
+a & b = 12
+a | b = 61
+a ^ b = 49
+~a = -61
+a << 2 = 240
+a >> 2  = 15
+a >>> 2 = 15
+//=============
+//Program #8
+public class Test {
+
+  public static void main(String args[]) {
+     boolean a = true;    
+     boolean b = false;	
+
+     System.out.println("a && b = " + (a&&b));
+
+     System.out.println("a || b = " + (a||b) );
+
+     System.out.println("!(a && b) = " + !(a && b));
+  }
+} 
+//Solution for Program #8
+$java -Xmx128M -Xms16M Test 
+a && b = false
+a || b = true
+!(a && b) = true
+//===============
+//Program #9
+public class Continue_1 {
+
+  public static void main( String args[] ) {
+    
+      int n = 0;
+
+label1:
+	   while ( n < 6 )  {
+		System.out.println("1. n == " + n);
+	
+                while ( n < 4 )  { 
+                        n++;
+			System.out.println("	2.  n == " + n);
+			if ( n > 2 )
+				continue label1;
+			System.out.println("	3.  n == " + n + "--------");
+                }
+                n++;
+        }
+  }
+}
+//Solution for Program #9
+$java -Xmx128M -Xms16M Continue_1 
+1. n == 0
+	2.  n == 1
+	3.  n == 1--------
+	2.  n == 2
+	3.  n == 2--------
+	2.  n == 3
+1. n == 3
+	2.  n == 4
+1. n == 4
+1. n == 5
+//==========
+//Program #10
+public class Q_9 {
+
+  public static String m()      {
+        return "a";
+  }
+  public static void main(String args[] )       {
+
+        System.out.println( 3 + 7 );
+// put your answer here
+
+
+
+        System.out.println( 7 + 3 + "a" + 7 + "b" );
+// put your answer here
+
+
+
+        System.out.println( 7 + 3 + (  "a" + 7 + "b" ) );
+// put your answer here
+
+
+
+        System.out.println( 7 + ( 3 +   "a" + 7 + "b" ) );
+// put your answer here
+
+
+
+        System.out.println( "a" + 7 + ( "b"  + 7 + 3 ) );
+// put your answer here
+
+
+
+        System.out.println( "a".equals("b") ? "A" : "B"  );
+// put your answer here
+
+        System.out.println( m().equals("a") ? 3 : 1 );
+// put your answer here
+
+
+
+        System.out.println( m() + 3 + 7 );
+// put your answer here
+
+
+
+        System.out.println++() );
+  }
+}
+
+//Solution for Program #10
+$java -Xmx128M -Xms16M Q_9 
+10
+10a7b
+10a7b
+73a7b
+a7b73
+B
+3
+a37
+10a
+//=========
+//Program #11
+public class Maximum_3 {
+  private double maximum(double _first, double _second ) {
+    return _first > _second ? _first : _second;
+  }
+
+  public static double minimum(double _first, double _second ) {
+	return _first < _second ? _first : _second;
+  }
+
+  public static void main( String args[] ) {
+    Maximum_3 aMax = new Maximum_3();
+    double firstN    = 42.0;
+    double secondN   = 7.0;
+    
+
+    System.out.println("Maximum(" + firstN +
+	", " + secondN + ") =  " +
+	aMax.maximum( firstN, secondN) );
+
+    System.out.println("Minimum(" + firstN +
+	", " + secondN + ") =  "
+	+ aMax.minimum( firstN, secondN) );
+  }
+}
+//solution for Program #11
+$java -Xmx128M -Xms16M Maximum_3 
+Maximum(42.0, 7.0) =  42.0
+Minimum(42.0, 7.0) =  7.0
+//===============================
+//Program #12
+public class Q_1 {
+        public static void main(String[] args) {
+                String s = "a";
+                String b = new String("a");                     // line 0
+                if (s == b)                                     // line 1
+                        System.out.println("1. s == b");
+                if (s.equals(b))
+                        System.out.println("2. s.equals(b)");
+                b = "s";
+                if (s == b)                                     // line 2
+                        System.out.println("3. s == b");
+                if (s.equals(b))                                // line 3
+                        System.out.println("4. s.equals(b)");
+                double doubleVar1 = 2.9;
+                double doubleVar2 = 4.0;
+                int intRes = (int)(5 / doubleVar1 * doubleVar2 );// line 5
+                System.out.println("5. intRes = " + intRes);
+        }
+}                                                                                                        
+//Solution for Program #12
+/**
+  * "xyz" versus new String("xyz")`
+  */
+
+public class S1 {
+
+  public static void method(String id, String literal, String aNewString)    {
+	System.out.println(id + " in method");
+	System.out.println("\tliteral= aNewString\n	" + ( literal == aNewString ));
+  }
+  public static void main( String args[] ) {
+	String aString = "xyz";
+	System.out.println("1.	xyz == aString:	" +     "xyz" == aString   );
+	System.out.println("2.	xyz == aString:	" +   ( "xyz" == aString ) );
+
+	String newString = new String("xyz");
+	System.out.println("xyz == new String(xyz)\n	" + ("xyz" == newString) );
+
+	method("1", "xyz", "xyz");
+	method("2", "xyz", new String("xyz") );
+	method("3", "xyz", "xy" + "z");
+	method("4", "x" + "y" + "z", "xyz");
+	method("5", "x" + "y" + new String("z"), "xyz");
+	method("6", "x" + ( "y" + "z"), "xyz");
+	method("7", 'x' + ( "y" + "z"), "xyz");
+  }
+}
+//Solution for Program #12
+$java -Xmx128M -Xms16M S1 
+false
+2.	xyz == aString:	true
+xyz == new String(xyz)
+	false
+1 in method
+	literal= aNewString
+	true
+2 in method
+	literal= aNewString
+	false
+3 in method
+	literal= aNewString
+	true
+4 in method
+	literal= aNewString
+	true
+5 in method
+	literal= aNewString
+	false
+6 in method
+	literal= aNewString
+	true
+7 in method
+	literal= aNewString
+	true

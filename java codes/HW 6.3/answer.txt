@@ -1,0 +1,36 @@
+/**
+ * @author      Author name
+ * @author      Vinay Kumbhar   613009443
+ * @author      Manan Shah      605004112
+ *
+**/
+
+Will XX.java compile?
+No
+
+No of lines to be deleted to remove compilation error
+Line 34 : aX1.iMethodXX(6);
+Line 38 : aX2.iMethodXX(9);
+Line 47 : aX1.iMethodXX(6);
+
+X   aX1 = new X(1); //Creating  base class object
+X   aX2 = new XX(2); // Creating child class object and storing in base class reference
+XX aXX1 = new XX(3); // Creating Child class object
+
+aX1.sMethod(4); // sMethod() of Base class is called because it is a static method called by class X
+aX1.iMethodX(5); // iMethodX() of Base class is called because it is called with Base class object
+aX1.iMethodXX(6); // Compilation error : Base class object cannot access child class method
+
+aX2.sMethod(7); // sMethod() of Base class is called because it is a static method called by class X
+aX2.iMethodX(8); // iMethodX() of Child class is called due to dynamic method dispatch
+aX2.iMethodXX(9); // Compilation error :  In dynamic method dispatch the object can call the overriding methods of child                      class and all the non-overridden methods of base class but it cannot call the methods which are newly                      declared in the child class
+
+aXX1.sMethod(10); // sMethod() of Child class is called because it is a static method called by class XX
+aXX1.iMethodX(11); // iMethodX() of Child class is called because it is called with Child class object
+aXX1.iMethodXX(11); // iMethodXX() of Child class is called because it is called with Child class object
+
+aX1 = aXX1; // Base class reference stores child class object
+aX1.sMethod(4); // sMethod() of Base class is called because it is a static method called by class X
+aX1.iMethodX(5); // iMethodX() of Child class is called due to dynamic method dispatch
+aX1.iMethodXX(6)  // Compilation error :  In dynamic method dispatch the object can call the overriding methods of                            child class and all the non-overridden methods of base class but it cannot call the 
+                      methods which are newly declared in the child class

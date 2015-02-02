@@ -1,0 +1,59 @@
+1. System.out.println("1.  xyz == aString: " +     "xyz"== aString   );
+Output: false
+The output is false because string "1.  xyz == aString: " concatenates "xyz" and then compares with aString
+
+2.  System.out.println("2.  xyz == aString: " +   ( "xyz" == aString ) );
+Output: 2.  xyz == aString: true
+The output is true because the expression( "xyz" == aString )  in bracket is evaluated first and then concatenated with string.
+
+3. System.out.println("xyz == new String(xyz)\n    " + ("xyz"==newString) );
+Output: xyz == new String(xyz)
+        false
+The output is false because "xyz" is literal string and newString is a object string. They cannot be compared using == operator.
+The content of both strings can be compared using equals() method.
+  
+4.  method("1", "xyz", "xyz");
+Output: 1 in method
+	    literal= aNewString
+         true
+The output is true because both the compared strings are literal strings."==" operator check the memory reference of each string.
+
+5. method("2", "xyz", new String("xyz") );
+Output: 2 in method
+	    literal= aNewString
+        false
+The output is false because a literal string is compared with object string.Both have different memory locations so can be compared only using equals() method.
+
+6.  method("3", "xyz", "xy" + "z");
+Output: 3 in method
+	     literal= aNewString
+         true  
+The output is true because first the "xy" string is concatenated with "z" and then both the literal strings are compared.
+
+7.  method("4", "x" + "y" + "z", "xyz");
+Output: 4 in method
+	     literal= aNewString
+         true
+The output is true because "x","y" and "z" string is concatenated and considered as literal string only.Then both are compared as literal strings.
+
+8.  method("5", "x" + "y" + new String("z"), "xyz");
+Output: 5 in method
+	    literal= aNewString
+        false
+The output is false because "z" here is considered as object string which gets concatenated with "x" & "y" but it cannot be compared with literal string using "==" operator.
+
+9.  method("6", "x" + ( "y" + "z"), "xyz");
+Output: 6 in method
+	    literal= aNewString
+        true
+The output is true because string "x" is concatenated with "yz" and then compared as a literal string with "xyz"
+		
+		
+10. method("7", 'x' + ( "y" + "z"), "xyz");
+Output: 7 in method
+	    literal= aNewString
+        true
+The output is true because 'x' is character but when concatenated with "yz" it becomes a string and then compared with literal string "xyz".
+
+How many strings have been generated?
+	
